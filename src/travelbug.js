@@ -2,7 +2,7 @@ class Travelbug {
     static allTravelbugs = [] 
     constructor( {body, id}) {
         this.body = body;
-        debugger; 
+        // debugger; 
         Travelbug.allTravelbugs.push(this) 
     }
 }

@@ -1,3 +1,13 @@
+function displayCountry(e) {
+    debugger;       
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    travelbugApi.fetchTravelbugs() 
+    document.getElementById("country-list").addEventListener("change", displayCountry)
+});
+
+
 const BASE_URL = "http://localhost:3000"; 
 const rootEl = document.getElementById("root");
 // "format_country"?
@@ -31,5 +41,6 @@ fetch("http://localhost:3000/api/v1/travelbugs")
     };
 };
 init(); 
+
 
 
