@@ -1,5 +1,8 @@
 class Travelbug {
-    constructor(dataObject) {
-        this.body = dataObject.body;
+    static allTravelbugs = [] 
+    constructor( {body, id}) {
+        this.body = body;
+        debugger; 
+        Travelbug.allTravelbugs.push(this) 
     }
 }
