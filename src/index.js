@@ -1,10 +1,17 @@
-const rootEl = document.getElementById('root')
+const BASE_URL = "http://localhost:3000"; 
+const rootEl = document.getElementById("root");
+// "format_country"?
 
+const init = () => {
+    getTravelbugs(); 
+};
+
+const getTravelbugs = () => {
 // asynchronous process OR promise chain  
 fetch("http://localhost:3000/api/v1/travelbugs")
     .then((res) => res.json())  
     // this doesn't execute until the rest of the file executes 
-    .then(data => renderTravelbugs(data));
+    .then((data) => renderTravelbugs(data))
 
 // How can I execute renderTravelbugs in line 5, when I defined it in line 8? HOISTING
 
@@ -20,3 +27,7 @@ fetch("http://localhost:3000/api/v1/travelbugs")
             `; 
         });
     };
+};
+init(); 
+
+
