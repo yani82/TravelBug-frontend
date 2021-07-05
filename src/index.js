@@ -2,17 +2,17 @@ const BASE_URL = "http://localhost:3000";
 const rootEl = document.getElementById("root");
 
 document.addEventListener("DOMContentLoaded", () => {
-    getCountries() 
+    getTravelbugs() 
     document.getElementById("country-list").addEventListener("change", displayCountry)
 });
 
 function displayCountry(e) {
-    debugger;       
+    // debugger;       
 }
 
-const getCountriesbugs = () => {
+const getTravelbugs = () => {
 // asynchronous process OR promise chain  
-fetch("http://localhost:3000/api/v1/countries")
+fetch("http://localhost:3000/api/v1/travelbugs")
     .then((res) => res.json()) 
     // this doesn't execute until the rest of the file executes \
     .then((data) => {
@@ -24,8 +24,9 @@ fetch("http://localhost:3000/api/v1/countries")
 // defined this as a function expression 
     function createTravelbugs(travelbugs) {
         travelbugs.forEach((travelbug) => {
-            const tb = new Travelbug(travelbug); 
-            tb.render()
+            new Travelbug(travelbug);
+            // const tb = new Travelbug(travelbug); 
+            // tb.render()
             // if you have to put anything on the page, you could do it inside the forEach
         })
     }; 

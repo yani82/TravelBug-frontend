@@ -5,13 +5,21 @@ class TravelbugApi {
 
     getTravelbugs() {
         console.log('something')
-        fetch(this.travelbugs + '/comments')
+        fetch(this.travelbugs + '/comments' + '/coountries')
         .then(res => console.log(res))
         .then(data => console.log(data))
         .catch(err => allert(err)) 
     }
     
     renderTravelbugs() {
+        
+    }
+
+    renderComments() {
+        
+    }
+
+    renderCountries() {
 
     }
 }
