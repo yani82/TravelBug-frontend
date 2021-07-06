@@ -14,7 +14,7 @@ const getTravelbugs = () => {
 // asynchronous process OR promise chain  
 fetch("http://localhost:3000/api/v1/travelbugs")
     .then((res) => res.json()) 
-    // this doesn't execute until the rest of the file executes \
+    // this doesn't execute until the rest of the file executes 
     .then((data) => {
         debugger
         createTravelbugs(data) 
