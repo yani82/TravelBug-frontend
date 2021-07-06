@@ -1,8 +1,9 @@
 class Travelbug {
     static allTravelbugs = [] 
-    constructor( {body, id}) {
-        this.body = body,
+    constructor( {body, id, country_id}) {
+        this.body = body;
         this.id = id;
+        this.country_id = country_id;
         // debugger; 
         Travelbug.allTravelbugs.push(this) 
     }
