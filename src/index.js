@@ -34,6 +34,7 @@ const getTravelbugs = () => {
 // defined this as a function expression 
 function createCountries(countries) {
     countries.forEach((country) => {
+        new Country(country)
         country.comments.forEach(comment => {
             new Comment(comment);
         }) 
