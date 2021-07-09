@@ -9,7 +9,7 @@ class Travelbug {
     }
 
     render() {
-        document.querySelector(".travelbug-list").innerHTML = ` 
+        document.querySelector("#travelbug-container").innerHTML = ` 
         <article id="travelbug-${this.id}" class="flex flex-col shadow my-4">
         <div class="bg-white flex flex-col justify-start p-6">
             <p class="text-sm pb-3">
