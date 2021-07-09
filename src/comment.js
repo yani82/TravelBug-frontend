@@ -1,20 +1,23 @@
 class Comment {
     static allComments = [] 
-    constructor( {body, id, user_id, country_id}) {
-        this.body = body;
-        this.id = id;
-        this.user_id = user_id;
-        this.country_id = country_id
-        // debugger; 
+    constructor(comment) {
+        this.id = comment.id;
+        this.description = comment.description;
+        this.username = comment.username;  
+        this.country_id = comment.country_id;
         Comment.allComments.push(this) 
     }
 
-    render() {
-        document.querySelector("#travelbug-container").innerHTML = ` 
+    renderComment() {
+        // document.querySelector("#postcomment-container").innerHTML = ` 
+        return `
         <article id="comment-${this.id}" class="flex flex-col shadow my-4">
         <div class="bg-white flex flex-col justify-start p-6">
             <p class="text-sm pb-3">
-                ${this.body} 
+                Posted by: ${this.username}
+                <br> 
+                Comment: ${this.description}
+                Country: ${this.country_id} 
             </p>
         </div>
     </article>

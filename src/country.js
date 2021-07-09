@@ -1,6 +1,6 @@
 class Country {
     static allCountries = [] 
-    constructor( {name, id}) {
+    constructor({name, id}) {
         this.name = name,
         this.id = id;
         // debugger; 
@@ -20,6 +20,10 @@ class Country {
     }
 
     findComments() {
+        // debugger
+        // if (!document.querySelector("#postcomment-container").empty()?) {
+        //     document.querySelector("#postcomment-container").reset()
+        // }
         return Comment.allComments.filter(comment => {
             return comment.country_id === this.id 
         })

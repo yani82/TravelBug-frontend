@@ -4,16 +4,21 @@ const rootEl = document.getElementById("root");
 document.addEventListener("DOMContentLoaded", () => {
     getTravelbugs() 
     document.getElementById("country-list").addEventListener("change", displayCountry)
+    document.getElementById("create-comment-form").addEventListener('submit', createFormHandler)  
 });
 
-function displayCountry(e) {     
+function displayCountry(e) { 
     const country = Country.findByName(e.target.value)
     if (!!country) {
     const travelbugs = country.findTravelbugs() 
     travelbugs.forEach(travelbug => travelbug.render()) 
     document.querySelector('#travelbug-container').innerHTML += "<p>Comments</p>"
     const comments = country.findComments() 
-    comments.forEach(comment => comment.render())
+    comments.forEach(comment => {
+        document.querySelector(
+        "#postcomment-container"
+      ).innerHTML += comment.renderComment()
+    })
     // debugger; 
     }
 }
@@ -27,16 +32,6 @@ fetch("http://localhost:3000/api/v1/countries")
     .then(countries => {
         createCountries(countries)
         // debugger
-        // travelbugs.forEach(travelbug => {
-            // debugger;
-            // const travelbugMarkup = `
-            // <div data-id=${travelbug.country_id}>
-            // <h3>${travelbug.body}</h3>
-            // <button data-id=${travelbug.id}>edit</button>
-            // </div>
-            // <br><br>`;
-
-            // document.querySelector('#travelbug-container').innerHTML += travelbugMarkup  
         })
          
         // console.log(data); 
@@ -55,4 +50,30 @@ fetch("http://localhost:3000/api/v1/countries")
             })
             // c.render() 
         })
-    }; 
+    }
+
+    function createFormHandler(e) {
+        e.preventDefault();
+        const country_id = Country.findByName(document.querySelector("#country-list").value).id
+        const username = document.querySelector("#input-username").value;
+        const description = document.querySelector("#input-description").value;
+        postFetch(username, description, country_id);
+      }
+    
+      function postFetch(username, description, country_id) {
+        let bodyData = {username, description, country_id}
+        fetch("http://localhost:3000/api/v1/comments", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(bodyData),     
+        })
+        .then(response => response.json())
+        .then(comment => {
+          const newComment = new Comment(comment);
+          document.querySelector(
+            "#postcomment-container"
+          ).innerHTML += newComment.renderComment();
+    
+         document.querySelector("#create-comment-form").reset()
+        }) 
+      }

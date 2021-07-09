@@ -1,5 +1,5 @@
 // move the logic to fetch the travelbugs to the TravelbugApi
-class TravelbugApi {
+class CountryApi {
     travelbugs = []
     comments = [] 
 
