@@ -4,8 +4,6 @@ class Travelbug {
         this.body = body;
         this.id = id;
         this.country_id = country_id;
-        // this.createTravelbug = this.createTravelbug.bind(this);
-        // debugger; 
         Travelbug.allTravelbugs.push(this) 
     }
 

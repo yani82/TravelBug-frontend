@@ -3,7 +3,6 @@ class Country {
     constructor({name, id}) {
         this.name = name,
         this.id = id;
-        // debugger; 
         Country.allCountries.push(this) 
     }
 
@@ -20,13 +19,13 @@ class Country {
     }
 
     findComments() {
-        // debugger
-        // if (!document.querySelector("#postcomment-container").empty()?) {
-        //     document.querySelector("#postcomment-container").reset()
-        // }
         return Comment.allComments.filter(comment => {
             return comment.country_id === this.id 
         })
+    }
+
+    static getAllCountries() {
+        return CountryApi.getCountries()
     }
 }
 

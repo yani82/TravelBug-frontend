@@ -17,11 +17,16 @@ class Comment {
                 Posted by: ${this.username}
                 <br> 
                 Comment: ${this.description}
+                <br>
                 Country: ${this.country_id} 
             </p>
         </div>
     </article>
     `
+    }
+
+    static createComment(comment) {
+        return CommmentApi.createComment(comment)
     }
 
 }

@@ -1,25 +1,18 @@
-// move the logic to fetch the travelbugs to the TravelbugApi
 class CountryApi {
-    travelbugs = []
-    comments = [] 
 
-    getTravelbugs() {
-        console.log('something')
-        fetch(this.travelbugs + '/comments' + '/countries')
-        .then(res => console.log(res))
-        .then(data => console.log(data))
-        .catch(err => allert(err)) 
-    }
-    
-    renderTravelbugs() {
-        
+    // static getTravelbugs() {
+    //     fetch(`${this.travelbugs}/comments/countries`)
+    //     .catch(err => alert(err)) 
+    // }
+
+    static getCountries() {
+        return fetch(`${BASE_URL}/v1/countries`)
+            .then(res => res.json())
     }
 
-    renderComments() {
-
+    static getCountry(id) {
+        return fetch(`${BASE_URL}/v1/countries/${id}`)
+            .then(res => res.json())
     }
 
-    renderCountries() {
-
-    }
 }
