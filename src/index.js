@@ -31,15 +31,18 @@ const getTravelbugs = () => {
      
     }
 
-// defined this as a function expression 
 function createCountries(countries) {
     countries.forEach((country) => {
         new Country(country)
-        country.comments.forEach(comment => {
-            new Comment(comment);
-        }) 
+    
+        const lengthComments = country.comments.sort((a, b) => b.description.length - a.description.length)
+ 
         country.travelbugs.forEach(travelbug => {
             new Travelbug(travelbug);
+        })
+
+        lengthComments.map(comment => {
+            new Comment(comment, country.name);
         })
     })
 }

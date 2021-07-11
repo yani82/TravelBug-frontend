@@ -1,10 +1,11 @@
 class Comment {
     static allComments = [] 
-    constructor(comment) {
+    constructor(comment, countryName) {
         this.id = comment.id;
         this.description = comment.description;
         this.username = comment.username;  
         this.country_id = comment.country_id;
+        this.countryName = countryName;
         Comment.allComments.push(this) 
     }
 
@@ -18,7 +19,7 @@ class Comment {
                 <br> 
                 Comment: ${this.description}
                 <br>
-                Country: ${this.country_id} 
+                Country: ${this.countryName} 
             </p>
         </div>
     </article>
